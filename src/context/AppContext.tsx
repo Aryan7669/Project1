@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { User, FoodListing, Reservation } from '../types';
 import { mockUsers, mockFoodListings, mockReservations, mockImpactMetrics } from '../data/mockData';
 
+
 interface AppContextType {
   currentUser: User | null;
   foodListings: FoodListing[];
