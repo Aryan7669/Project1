@@ -67,7 +67,7 @@ const ImpactPage: React.FC = () => {
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-2 text-gray-800">Community Kitchen Success</h3>
               <p className="text-gray-600 mb-4">
-                "Thanks to FoodShare, we've been able to increase our meal service by 30% while reducing food costs. The platform has connected us with local businesses that have surplus food, creating a win-win situation for everyone involved."
+                "Thanks to Good2Give, we've been able to increase our meal service by 30% while reducing food costs. The platform has connected us with local businesses that have surplus food, creating a win-win situation for everyone involved."
               </p>
               <p className="text-sm text-gray-500">- Maria Rodriguez, Community Kitchen Director</p>
             </div>
@@ -84,7 +84,7 @@ const ImpactPage: React.FC = () => {
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-2 text-gray-800">Reducing Waste at Fresh Foods</h3>
               <p className="text-gray-600 mb-4">
-                "Before FoodShare, we were throwing away perfectly good food that was approaching its sell-by date. Now, we've reduced our food waste by 75% and built meaningful relationships with local charities and families in need."
+                "Before Good2Give, we were throwing away perfectly good food that was approaching its sell-by date. Now, we've reduced our food waste by 75% and built meaningful relationships with local charities and families in need."
               </p>
               <p className="text-sm text-gray-500">- James Chen, Fresh Foods Market Manager</p>
             </div>
@@ -99,17 +99,17 @@ const ImpactPage: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="p-6">
             <div className="flex items-center mb-4">
-              <div className="bg-green-100 p-3 rounded-full">
-                <Leaf className="h-6 w-6 text-green-600" />
+              <div className="bg-blue-100 p-3 rounded-full">
+                <Leaf className="h-6 w-6 text-blue-600" />
               </div>
               <h3 className="text-lg font-semibold ml-3 text-gray-800">Why Food Waste Matters</h3>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <h4 className="font-medium text-gray-800 mb-2">Greenhouse Gas Emissions</h4>
+                <h4 className="font-medium text-gray-800 mb-2">bluehouse Gas Emissions</h4>
                 <p className="text-gray-600 text-sm">
-                  Food waste in landfills produces methane, a greenhouse gas 25 times more potent than carbon dioxide. By rescuing food, we prevent these emissions.
+                  Food waste in landfills produces methane, a bluehouse gas 25 times more potent than carbon dioxide. By rescuing food, we prevent these emissions.
                 </p>
               </div>
               
@@ -132,21 +132,21 @@ const ImpactPage: React.FC = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="bg-green-600 text-white rounded-xl p-8 text-center">
+      <section className="bg-blue-600 text-white rounded-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-4">Join Our Mission</h2>
         <p className="text-lg mb-6 max-w-2xl mx-auto">
-          Whether you're a restaurant, grocery store, or individual looking to make a difference, your contribution matters. Join FoodShare today and be part of the solution.
+          Whether you're a restaurant, grocery store, or individual looking to make a difference, your contribution matters. Join Good2Give today and be part of the solution.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a 
             href="/signup" 
-            className="bg-white text-green-700 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors"
+            className="bg-white text-blue-700 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors"
           >
             Sign Up Now
           </a>
           <a 
             href="/listings" 
-            className="bg-green-700 text-white hover:bg-green-800 px-6 py-3 rounded-md font-medium transition-colors"
+            className="bg-blue-700 text-white hover:bg-blue-800 px-6 py-3 rounded-md font-medium transition-colors"
           >
             Browse Listings
           </a>

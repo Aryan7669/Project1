@@ -12,8 +12,8 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ metrics }) => {
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Your Impact</h3>
         
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-green-50 p-4 rounded-lg">
-            <p className="text-3xl font-bold text-green-700">{metrics.totalDonations}</p>
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <p className="text-3xl font-bold text-blue-700">{metrics.totalDonations}</p>
             <p className="text-sm text-gray-600">Total Donations</p>
           </div>
           

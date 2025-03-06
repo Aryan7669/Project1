@@ -103,7 +103,7 @@ const DonatePage: React.FC = () => {
         </p>
         <button 
           onClick={() => navigate('/login')}
-          className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+          className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
         >
           Log In
         </button>
@@ -134,7 +134,7 @@ const DonatePage: React.FC = () => {
                   id="title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="e.g., Fresh Vegetables Assortment"
                   required
                 />
@@ -149,7 +149,7 @@ const DonatePage: React.FC = () => {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows={3}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Describe the food you're donating..."
                   required
                 />
@@ -165,7 +165,7 @@ const DonatePage: React.FC = () => {
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   min="1"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -178,7 +178,7 @@ const DonatePage: React.FC = () => {
                   id="unit"
                   value={unit}
                   onChange={(e) => setUnit(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 >
                   <option value="items">Items</option>
@@ -199,7 +199,7 @@ const DonatePage: React.FC = () => {
                   id="category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value as FoodCategory)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 >
                   {categories.map((cat) => (
@@ -219,7 +219,7 @@ const DonatePage: React.FC = () => {
                   id="expiryDate"
                   value={expiryDate}
                   onChange={(e) => setExpiryDate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -234,7 +234,7 @@ const DonatePage: React.FC = () => {
       id="address"
       value={address}
       readOnly
-      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-gray-100"
+      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-100"
     />
     <button
       type="button"
@@ -260,7 +260,7 @@ const DonatePage: React.FC = () => {
           console.error("Geolocation is not supported by this browser.");
         }
       }}
-      className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
+      className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
     >
       Use Current Location
     </button>
@@ -285,7 +285,7 @@ const DonatePage: React.FC = () => {
         reader.readAsDataURL(file);
       }
     }}
-    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
   {imageUrl && <img src={imageUrl} alt="Preview" className="mt-2 w-32 h-32 object-cover rounded-md" />}
 </div>
@@ -299,7 +299,7 @@ const DonatePage: React.FC = () => {
                   value={pickupInstructions}
                   onChange={(e) => setPickupInstructions(e.target.value)}
                   rows={2}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Any special instructions for pickup..."
                 />
               </div>
@@ -312,7 +312,7 @@ const DonatePage: React.FC = () => {
                   id="temperature"
                   value={temperature}
                   onChange={(e) => setTemperature(e.target.value as 'frozen' | 'refrigerated' | 'room temperature')}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="room temperature">Room Temperature</option>
                   <option value="refrigerated">Refrigerated</option>
@@ -332,7 +332,7 @@ const DonatePage: React.FC = () => {
                         id={`dietary-${option}`}
                         checked={dietaryInfo.includes(option)}
                         onChange={() => handleDietaryChange(option)}
-                        className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                       />
                       <label htmlFor={`dietary-${option}`} className="ml-2 text-sm text-gray-700">
                         {option}
@@ -346,7 +346,7 @@ const DonatePage: React.FC = () => {
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="flex items-center bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+                className="flex items-center bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
               >
                 <PlusCircle className="mr-2 h-5 w-5" />
                 Create Listing

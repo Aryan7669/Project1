@@ -37,7 +37,7 @@ const ReservationDetailPage: React.FC = () => {
         </p>
         <Link 
           to="/schedule" 
-          className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+          className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
         >
           Back to Schedule
         </Link>
@@ -62,7 +62,7 @@ const ReservationDetailPage: React.FC = () => {
   
   const statusColors = {
     pending: 'bg-yellow-100 text-yellow-800',
-    confirmed: 'bg-green-100 text-green-800',
+    confirmed: 'bg-blue-100 text-blue-800',
     completed: 'bg-blue-100 text-blue-800',
     cancelled: 'bg-red-100 text-red-800'
   };
@@ -156,7 +156,7 @@ const ReservationDetailPage: React.FC = () => {
               {isDonor && reservation.status === 'pending' && (
                 <button
                   onClick={() => setIsUpdating(true)}
-                  className="bg-green-600 text-white hover:bg-green-700 px-4 py-2 rounded-md font-medium transition-colors"
+                  className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors"
                 >
                   Update Status
                 </button>
@@ -196,7 +196,7 @@ const ReservationDetailPage: React.FC = () => {
               <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => handleUpdateStatus('confirmed')}
-                  className="flex items-center bg-green-600 text-white hover:bg-green-700 px-4 py-2 rounded-md font-medium transition-colors"
+                  className="flex items-center bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors"
                 >
                   <CheckCircle className="mr-2 h-5 w-5" />
                   Confirm
