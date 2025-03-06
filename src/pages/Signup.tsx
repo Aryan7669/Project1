@@ -42,13 +42,13 @@ const SignupPage: React.FC = () => {
     <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
       <div className="p-6">
         <div className="flex justify-center mb-6">
-          <div className="bg-green-100 p-3 rounded-full">
-            <Leaf className="h-8 w-8 text-green-600" />
+          <div className="bg-blue-100 p-3 rounded-full">
+            <Leaf className="h-8 w-8 text-blue-600" />
           </div>
         </div>
 
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Sign up for FoodShare
+          Sign up for Good2Give
         </h2>
 
         {error && (
@@ -67,7 +67,7 @@ const SignupPage: React.FC = () => {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -81,7 +81,7 @@ const SignupPage: React.FC = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -95,7 +95,7 @@ const SignupPage: React.FC = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -109,7 +109,7 @@ const SignupPage: React.FC = () => {
               id="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -123,7 +123,7 @@ const SignupPage: React.FC = () => {
               id="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -137,7 +137,7 @@ const SignupPage: React.FC = () => {
               value={userType}
               onChange={(e) => setUserType(e.target.value as "donor" | "recipient")}
 
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             >
               <option value="donor">Donor</option>
@@ -147,7 +147,7 @@ const SignupPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
             disabled={isLoading}
           >
             {isLoading ? (
@@ -164,7 +164,7 @@ const SignupPage: React.FC = () => {
         <div className="mt-6">
           <p className="text-center text-gray-600">
             Already have an account?{" "}
-            <Link to="/login" className="text-green-600 hover:text-green-700">
+            <Link to="/login" className="text-blue-600 hover:text-blue-700">
               Log in
             </Link>
           </p>

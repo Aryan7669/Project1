@@ -15,7 +15,7 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 
 const initializeDBAndServer = async () => {
-    try {
+    try {email
         db = await open({
             filename: dbPath,
             driver: sqlite3.Database
@@ -29,11 +29,16 @@ const initializeDBAndServer = async () => {
     };
 }
 initializeDBAndServer();
+<<<<<<< HEAD
+app.post('/signup/', async (request, response) => { 
+    const {name, password, email, address,phone,usertype} = request.body;
+=======
 
 //API 1 SignUp API
 
 app.post('/signup/', async (request, response) => { 
     const {name, password, email,address,phone,usertype} = request.body;
+>>>>>>> 19eac68149d50a12d99eb9652ab7672e0d40d803
     const hashedPassword = await bcrypt.hash(password, 10);
     const selectUserQuery = `SELECT * FROM users WHERE email = '${email}';`;
     const dbUser = await db.get(selectUserQuery);
@@ -71,8 +76,11 @@ app.post('/login/', async (request, response) => {
     }
 });
 
+<<<<<<< HEAD
+=======
 //auth middleware
 
+>>>>>>> 19eac68149d50a12d99eb9652ab7672e0d40d803
 const authenticateToken = (request, response, next) => {
     let jwtToken;
     const authHeader = request.headers["authorization"];
@@ -96,6 +104,9 @@ const authenticateToken = (request, response, next) => {
 
 
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 19eac68149d50a12d99eb9652ab7672e0d40d803
 module.exports = app;

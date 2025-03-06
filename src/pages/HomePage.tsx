@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="max-w-6xl mx-auto">
       {/* Hero Section */}
-      <section className="relative bg-green-600 text-white rounded-xl overflow-hidden mb-8">
+      <section className="relative bg-blue-600 text-white rounded-xl overflow-hidden mb-8">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative z-10 p-8 md:p-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
@@ -29,21 +29,21 @@ const HomePage: React.FC = () => {
           <div className="flex flex-wrap gap-4">
             <Link 
               to="/listings" 
-              className="bg-white text-green-700 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors"
+              className="bg-white text-blue-700 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors"
             >
               Find Food
             </Link>
             {currentUser?.role === 'donor' ? (
               <Link 
                 to="/donate" 
-                className="bg-green-700 text-white hover:bg-green-800 px-6 py-3 rounded-md font-medium transition-colors"
+                className="bg-blue-700 text-white hover:bg-blue-800 px-6 py-3 rounded-md font-medium transition-colors"
               >
                 Donate Food
               </Link>
             ) : (
               <Link 
                 to="/signup" 
-                className="bg-green-700 text-white hover:bg-green-800 px-6 py-3 rounded-md font-medium transition-colors"
+                className="bg-blue-700 text-white hover:bg-blue-800 px-6 py-3 rounded-md font-medium transition-colors"
               >
                 Sign Up to Donate
               </Link>
@@ -57,8 +57,8 @@ const HomePage: React.FC = () => {
         <h2 className="text-2xl font-bold mb-6 text-gray-800">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="bg-green-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Search className="text-green-600" size={24} />
+            <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <Search className="text-blue-600" size={24} />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Find Food</h3>
             <p className="text-gray-600">
@@ -67,8 +67,8 @@ const HomePage: React.FC = () => {
           </div>
           
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="bg-green-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <PlusCircle className="text-green-600" size={24} />
+            <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <PlusCircle className="text-blue-600" size={24} />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Donate Food</h3>
             <p className="text-gray-600">
@@ -77,8 +77,8 @@ const HomePage: React.FC = () => {
           </div>
           
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="bg-green-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <BarChart3 className="text-green-600" size={24} />
+            <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <BarChart3 className="text-blue-600" size={24} />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Track Impact</h3>
             <p className="text-gray-600">
@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-800">Recent Listings</h2>
           <Link 
             to="/listings" 
-            className="text-green-600 hover:text-green-700 font-medium"
+            className="text-blue-600 hover:text-blue-700 font-medium"
           >
             View All
           </Link>
@@ -112,7 +112,7 @@ const HomePage: React.FC = () => {
             {currentUser?.role === 'donor' && (
               <Link 
                 to="/donate" 
-                className="mt-4 inline-block bg-green-600 text-white hover:bg-green-700 px-4 py-2 rounded-md font-medium transition-colors"
+                className="mt-4 inline-block bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors"
               >
                 Create a Listing
               </Link>
@@ -136,21 +136,21 @@ const HomePage: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-4">
           <Link 
             to="/listings" 
-            className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+            className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
           >
             Find Food
           </Link>
           {currentUser?.role === 'donor' ? (
             <Link 
               to="/donate" 
-              className="bg-white text-green-700 border border-green-600 hover:bg-green-50 px-6 py-3 rounded-md font-medium transition-colors"
+              className="bg-white text-blue-700 border border-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-colors"
             >
               Donate Food
             </Link>
           ) : (
             <Link 
               to="/signup" 
-              className="bg-white text-green-700 border border-green-600 hover:bg-green-50 px-6 py-3 rounded-md font-medium transition-colors"
+              className="bg-white text-blue-700 border border-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-colors"
             >
               Sign Up
             </Link>

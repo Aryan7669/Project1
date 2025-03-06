@@ -24,7 +24,7 @@ const ProfilePage: React.FC = () => {
         </p>
         <button 
           onClick={() => navigate('/login')}
-          className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+          className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
         >
           Log In
         </button>
@@ -71,7 +71,7 @@ const ProfilePage: React.FC = () => {
               {!isEditing && (
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="mt-4 w-full bg-green-600 text-white hover:bg-green-700 px-4 py-2 rounded-md font-medium transition-colors"
+                  className="mt-4 w-full bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors"
                 >
                   Edit Profile
                 </button>
@@ -91,7 +91,7 @@ const ProfilePage: React.FC = () => {
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                       />
                     </div>
@@ -105,7 +105,7 @@ const ProfilePage: React.FC = () => {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                       />
                     </div>
@@ -119,7 +119,7 @@ const ProfilePage: React.FC = () => {
                         id="organization"
                         value={organization}
                         onChange={(e) => setOrganization(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     
@@ -132,7 +132,7 @@ const ProfilePage: React.FC = () => {
                         id="phone"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     
@@ -145,7 +145,7 @@ const ProfilePage: React.FC = () => {
                         id="address"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                   </div>
@@ -161,7 +161,7 @@ const ProfilePage: React.FC = () => {
                     
                     <button
                       type="submit"
-                      className="bg-green-600 text-white hover:bg-green-700 px-4 py-2 rounded-md font-medium transition-colors"
+                      className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors"
                     >
                       Save Changes
                     </button>

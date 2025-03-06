@@ -34,7 +34,7 @@ const ListingDetailPage: React.FC = () => {
         </p>
         <Link 
           to="/listings" 
-          className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+          className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
         >
           Back to Listings
         </Link>
@@ -89,7 +89,7 @@ const ListingDetailPage: React.FC = () => {
                 isExpired 
                   ? 'bg-red-100 text-red-800' 
                   : listing.status === 'available'
-                    ? 'bg-green-100 text-green-800'
+                    ? 'bg-blue-100 text-blue-800'
                     : listing.status === 'reserved'
                       ? 'bg-yellow-100 text-yellow-800'
                       : 'bg-blue-100 text-blue-800'
@@ -190,7 +190,7 @@ const ListingDetailPage: React.FC = () => {
                     id="pickupDate"
                     value={pickupDate}
                     onChange={(e) => setPickupDate(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -204,7 +204,7 @@ const ListingDetailPage: React.FC = () => {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Any special requests or information for the donor..."
                   />
                 </div>
@@ -212,7 +212,7 @@ const ListingDetailPage: React.FC = () => {
                 <div className="flex gap-3">
                   <button
                     onClick={handleSubmitReservation}
-                    className="bg-green-600 text-white hover:bg-green-700 px-4 py-2 rounded-md font-medium transition-colors"
+                    className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors"
                   >
                     Confirm Reservation
                   </button>
@@ -231,7 +231,7 @@ const ListingDetailPage: React.FC = () => {
               {isAvailable && !isOwnListing && currentUser?.role === 'recipient' && (
                 <button
                   onClick={handleReserve}
-                  className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+                  className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
                 >
                   Reserve This Food
                 </button>
@@ -240,7 +240,7 @@ const ListingDetailPage: React.FC = () => {
               {!currentUser && isAvailable && (
                 <Link
                   to="/login"
-                  className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+                  className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
                 >
                   Log in to Reserve
                 </Link>

@@ -13,7 +13,7 @@ const FoodListingCard: React.FC<FoodListingCardProps> = ({ listing, compact = fa
   const isExpired = isAfter(new Date(), new Date(listing.expiryDate));
   
   const statusColors = {
-    available: 'bg-green-100 text-green-800',
+    available: 'bg-blue-100 text-blue-800',
     reserved: 'bg-yellow-100 text-yellow-800',
     completed: 'bg-blue-100 text-blue-800',
     expired: 'bg-red-100 text-red-800'
@@ -95,7 +95,7 @@ const FoodListingCard: React.FC<FoodListingCardProps> = ({ listing, compact = fa
           </span>
           <Link 
             to={`/listings/${listing.id}`}
-            className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm font-medium"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
           >
             View Details
           </Link>

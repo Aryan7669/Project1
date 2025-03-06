@@ -12,7 +12,7 @@ import {
   UserCircle, 
   Menu, 
   X,
-  Leaf
+  HeartHandshake
 } from 'lucide-react';
 
 const Layout: React.FC = () => {
@@ -37,11 +37,11 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-      <header className="bg-green-600 text-white shadow-md">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <header className="bg-blue-600 text-white shadow-md">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center ">
           <Link to="/" className="flex items-center space-x-2 text-xl font-bold">
-            <Leaf size={24} />
-            <span>FoodShare</span>
+            <HeartHandshake size={24} />
+            <span>Good2Give</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-4">
@@ -50,7 +50,7 @@ const Layout: React.FC = () => {
                 <span className="text-sm">{currentUser.name}</span>
                 <button 
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 bg-green-700 hover:bg-green-800 px-3 py-1 rounded-md transition-colors"
+                  className="flex items-center space-x-1 bg-blue-700 hover:bg-blue-800 px-3 py-1 rounded-md transition-colors"
                 >
                   <LogOut size={16} />
                   <span>Logout</span>
@@ -59,7 +59,7 @@ const Layout: React.FC = () => {
             ) : (
               <Link 
                 to="/login" 
-                className="flex items-center space-x-1 bg-green-700 hover:bg-green-800 px-3 py-1 rounded-md transition-colors"
+                className="flex items-center space-x-1 bg-blue-700 hover:bg-blue-800 px-3 py-1 rounded-md transition-colors"
               >
                 <LogIn size={16} />
                 <span>Login</span>
@@ -78,7 +78,7 @@ const Layout: React.FC = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-green-600 text-white">
+        <div className="md:hidden bg-blue-600 text-white">
           <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
             <Link 
               to="/" 
@@ -156,7 +156,7 @@ const Layout: React.FC = () => {
               to="/" 
               className={`flex items-center space-x-2 p-2 rounded-md ${
                 location.pathname === '/' 
-                  ? 'bg-green-100 text-green-700' 
+                  ? 'bg-blue-100 text-blue-700' 
                   : 'hover:bg-gray-100'
               }`}
             >
@@ -167,7 +167,7 @@ const Layout: React.FC = () => {
               to="/listings" 
               className={`flex items-center space-x-2 p-2 rounded-md ${
                 location.pathname === '/listings' 
-                  ? 'bg-green-100 text-green-700' 
+                  ? 'bg-blue-100 text-blue-700' 
                   : 'hover:bg-gray-100'
               }`}
             >
@@ -179,7 +179,7 @@ const Layout: React.FC = () => {
                 to="/donate" 
                 className={`flex items-center space-x-2 p-2 rounded-md ${
                   location.pathname === '/donate' 
-                    ? 'bg-green-100 text-green-700' 
+                    ? 'bg-blue-100 text-blue-700' 
                     : 'hover:bg-gray-100'
                 }`}
               >
@@ -191,7 +191,7 @@ const Layout: React.FC = () => {
               to="/schedule" 
               className={`flex items-center space-x-2 p-2 rounded-md ${
                 location.pathname === '/schedule' 
-                  ? 'bg-green-100 text-green-700' 
+                  ? 'bg-blue-100 text-blue-700' 
                   : 'hover:bg-gray-100'
               }`}
             >
@@ -202,7 +202,7 @@ const Layout: React.FC = () => {
               to="/impact" 
               className={`flex items-center space-x-2 p-2 rounded-md ${
                 location.pathname === '/impact' 
-                  ? 'bg-green-100 text-green-700' 
+                  ? 'bg-blue-100 text-blue-700' 
                   : 'hover:bg-gray-100'
               }`}
             >
@@ -213,7 +213,7 @@ const Layout: React.FC = () => {
               to="/profile" 
               className={`flex items-center space-x-2 p-2 rounded-md ${
                 location.pathname === '/profile' 
-                  ? 'bg-green-100 text-green-700' 
+                  ? 'bg-blue-100 text-blue-700' 
                   : 'hover:bg-gray-100'
               }`}
             >
@@ -230,11 +230,11 @@ const Layout: React.FC = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6">
+      <footer className="bg-blue-800 text-white py-6">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-3">FoodShare</h3>
+              <h3 className="text-lg font-semibold mb-3">Good2Give</h3>
               <p className="text-gray-300 text-sm">
                 Connecting surplus food with those who need it most. Together we can reduce food waste and fight hunger.
               </p>
@@ -251,14 +251,14 @@ const Layout: React.FC = () => {
             <div>
               <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
               <p className="text-gray-300 text-sm">
-                Email: info@foodshare.org<br />
+                Email: info@Good2Give.org<br />
                 Phone: (123) 456-7890<br />
                 Address: 123 Green Street, San Francisco, CA 94110
               </p>
             </div>
           </div>
           <div className="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} FoodShare. All rights reserved.
+            &copy; {new Date().getFullYear()} Good2Give. All rights reserved.
           </div>
         </div>
       </footer>

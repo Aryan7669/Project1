@@ -99,8 +99,8 @@ const ImpactPage: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="p-6">
             <div className="flex items-center mb-4">
-              <div className="bg-green-100 p-3 rounded-full">
-                <Leaf className="h-6 w-6 text-green-600" />
+              <div className="bg-blue-100 p-3 rounded-full">
+                <Leaf className="h-6 w-6 text-blue-600" />
               </div>
               <h3 className="text-lg font-semibold ml-3 text-gray-800">Why Food Waste Matters</h3>
             </div>
@@ -132,7 +132,7 @@ const ImpactPage: React.FC = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="bg-green-600 text-white rounded-xl p-8 text-center">
+      <section className="bg-blue-600 text-white rounded-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-4">Join Our Mission</h2>
         <p className="text-lg mb-6 max-w-2xl mx-auto">
           Whether you're a restaurant, grocery store, or individual looking to make a difference, your contribution matters. Join FoodShare today and be part of the solution.
@@ -140,13 +140,13 @@ const ImpactPage: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-4">
           <a 
             href="/signup" 
-            className="bg-white text-green-700 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors"
+            className="bg-white text-blue-700 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors"
           >
             Sign Up Now
           </a>
           <a 
             href="/listings" 
-            className="bg-green-700 text-white hover:bg-green-800 px-6 py-3 rounded-md font-medium transition-colors"
+            className="bg-blue-700 text-white hover:bg-blue-800 px-6 py-3 rounded-md font-medium transition-colors"
           >
             Browse Listings
           </a>

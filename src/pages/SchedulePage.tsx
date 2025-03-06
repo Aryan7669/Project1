@@ -17,7 +17,7 @@ const SchedulePage: React.FC = () => {
         </p>
         <button 
           onClick={() => window.location.href = '/login'}
-          className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-md font-medium transition-colors"
+          className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-colors"
         >
           Log In
         </button>
@@ -59,7 +59,7 @@ const SchedulePage: React.FC = () => {
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value as any)}
-            className="px-4 py-2 rounded-md border-0 focus:ring-2 focus:ring-green-500"
+            className="px-4 py-2 rounded-md border-0 focus:ring-2 focus:ring-blue-500"
           >
             <option value="all">All Statuses</option>
             <option value="pending">Pending</option>
