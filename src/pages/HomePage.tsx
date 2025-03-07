@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
             ) : (
               <Link 
                 to="/signup" 
-                className="bg-blue-700 text-white hover:bg-blue-800 px-6 py-3 rounded-md font-medium transition-colors"
+                className="bg-blue-800 text-white hover:bg-blue-800 px-6 py-3 rounded-md font-medium transition-colors"
               >
                 Sign Up to Donate
               </Link>

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useApp } from "../context/AppContext";
-import { UserPlus, Leaf } from "lucide-react";
+import { UserPlus, Leaf,HeartHandshake } from "lucide-react";
 
 const SignupPage: React.FC = () => {
   const [name, setName] = useState("");
@@ -13,14 +13,25 @@ const SignupPage: React.FC = () => {
 
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [shakeRequired, setShakeRequired] = useState(false); // For animation trigger
+  const [isFormVisible, setIsFormVisible] = useState(false); // For fade-in animation
 
-  const { signup } = useApp(); // Assuming you have a signup function in context
+  const { signup } = useApp();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
+
+    // Check required fields
+    if (!name.trim() || !email.trim() || !password.trim() || !address.trim() || !phone.trim() || !userType) {
+      setShakeRequired(true);
+      setTimeout(() => setShakeRequired(false), 500); // Reset shake after animation
+      setError("Please fill out all required fields.");
+      setIsLoading(false);
+      return;
+    }
 
     try {
       const success = await signup(name, email, password, address, phone, userType);
@@ -38,28 +49,33 @@ const SignupPage: React.FC = () => {
     }
   };
 
+  // Trigger fade-in animation on mount
+  useEffect(() => {
+    setIsFormVisible(true);
+  }, []);
+
   return (
-    <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+    <div className={`max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden transition-all duration-500 ${isFormVisible ? 'opacity-100 animate-fade-in' : 'opacity-0'}`}>
       <div className="p-6">
-        <div className="flex justify-center mb-6">
-          <div className="bg-blue-100 p-3 rounded-full">
-            <Leaf className="h-8 w-8 text-blue-600" />
+        <div className="flex justify-center mb-6 transition-all duration-500">
+          <div className="bg-blue-100 p-3 rounded-full transition-all duration-500 animate-bounce-once">
+            <HeartHandshake className="h-8 w-8 text-blue-600" />
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6 transition-all duration-300 hover:text-gray-600">
           Sign up for Good2Give
         </h2>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 transition-all duration-300">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="name" className="block text-gray-700 font-medium mb-2 transition-all duration-300 hover:text-gray-900">
               Name
             </label>
             <input
@@ -67,13 +83,13 @@ const SignupPage: React.FC = () => {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out hover:border-blue-500 ${shakeRequired && !name.trim() ? 'animate-shake' : ''}`}
               required
             />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="email" className="block text-gray-700 font-medium mb-2 transition-all duration-300 hover:text-gray-900">
               Email
             </label>
             <input
@@ -81,13 +97,13 @@ const SignupPage: React.FC = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out hover:border-blue-500 ${shakeRequired && !email.trim() ? 'animate-shake' : ''}`}
               required
             />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="password" className="block text-gray-700 font-medium mb-2 transition-all duration-300 hover:text-gray-900">
               Password
             </label>
             <input
@@ -95,13 +111,13 @@ const SignupPage: React.FC = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out hover:border-blue-500 ${shakeRequired && !password.trim() ? 'animate-shake' : ''}`}
               required
             />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="address" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="address" className="block text-gray-700 font-medium mb-2 transition-all duration-300 hover:text-gray-900">
               Address
             </label>
             <input
@@ -109,13 +125,13 @@ const SignupPage: React.FC = () => {
               id="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out hover:border-blue-500 ${shakeRequired && !address.trim() ? 'animate-shake' : ''}`}
               required
             />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="phone" className="block text-gray-700 font-medium mb-2 transition-all duration-300 hover:text-gray-900">
               Phone Number
             </label>
             <input
@@ -123,21 +139,20 @@ const SignupPage: React.FC = () => {
               id="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out hover:border-blue-500 ${shakeRequired && !phone.trim() ? 'animate-shake' : ''}`}
               required
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="userType" className="block text-gray-700 font-medium mb-2">
+            <label htmlFor="userType" className="block text-gray-700 font-medium mb-2 transition-all duration-300 hover:text-gray-900">
               User Type
             </label>
             <select
               id="userType"
               value={userType}
               onChange={(e) => setUserType(e.target.value as "donor" | "recipient")}
-
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out hover:border-blue-500 ${shakeRequired && !userType ? 'animate-shake' : ''}`}
               required
             >
               <option value="donor">Donor</option>
@@ -147,7 +162,7 @@ const SignupPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center justify-center"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-md disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center"
             disabled={isLoading}
           >
             {isLoading ? (
@@ -161,10 +176,10 @@ const SignupPage: React.FC = () => {
           </button>
         </form>
 
-        <div className="mt-6">
-          <p className="text-center text-gray-600">
+        <div className="mt-6 transition-all duration-300">
+          <p className="text-center text-gray-600 transition-all duration-300 hover:text-gray-800">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-600 hover:text-blue-700">
+            <Link to="/login" className="text-blue-600 hover:text-blue-700 transition-colors duration-300">
               Log in
             </Link>
           </p>

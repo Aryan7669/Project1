@@ -35,40 +35,43 @@ const Layout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 transition-all duration-300">
       {/* Header */}
-      <header className="bg-blue-600 text-white shadow-md">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center ">
-          <Link to="/" className="flex items-center space-x-2 text-xl font-bold">
-            <HeartHandshake size={24} />
+      <header className="bg-blue-600 text-white shadow-md sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          <Link 
+            to="/" 
+            className="flex items-center space-x-2 text-xl font-bold transform hover:scale-105 transition-transform duration-200"
+          >
+            <HeartHandshake size={24} className="animate-pulse" />
             <span>Good2Give</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-4">
             {currentUser ? (
               <>
-                <span className="text-sm">{currentUser.name}</span>
+                <span className="text bold transform hover:scale-105 transition-transform duration-200">{currentUser.name}</span>
                 <button 
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 bg-blue-700 hover:bg-blue-800 px-3 py-1 rounded-md transition-colors"
+                  className="flex items-center space-x-1 bg-blue-700 px-3 py-1 rounded-md transition-all duration-300 hover:bg-blue-800 hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  <LogOut size={16} />
+                  <LogOut size={16} className="group-hover:animate-bounce" />
                   <span>Logout</span>
                 </button>
               </>
             ) : (
               <Link 
                 to="/login" 
-                className="flex items-center space-x-1 bg-blue-700 hover:bg-blue-800 px-3 py-1 rounded-md transition-colors"
+                className="flex items-center space-x-1 bg-blue-700 px-3 py-1 rounded-md transition-all duration-300 hover:bg-blue-800 hover:shadow-lg hover:-translate-y-0.5"
               >
-                <LogIn size={16} />
+                <LogIn size={16} className="group-hover:animate-bounce" />
                 <span>Login</span>
               </Link>
             )}
           </div>
           
           <button 
-            className="md:hidden text-white"
+            className="md:hidden text-white transform hover:scale-110 transition-transform duration-200"
             onClick={toggleMobileMenu}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -77,154 +80,84 @@ const Layout: React.FC = () => {
       </header>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-blue-600 text-white">
-          <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
+      <div 
+        className={`md:hidden bg-blue-600 text-white overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
+          {[
+            { to: "/", icon: Home, text: "Home" },
+            { to: "/listings", icon: Search, text: "Find Food" },
+            ...(currentUser?.role === 'donor' ? [{ to: "/donate", icon: PlusCircle, text: "Donate Food" }] : []),
+            { to: "/schedule", icon: Calendar, text: "Schedule" },
+            { to: "/impact", icon: BarChart3, text: "Impact" },
+          ].map((item) => (
             <Link 
-              to="/" 
-              className="flex items-center space-x-2 py-2"
+              key={item.to}
+              to={item.to}
+              className="flex items-center space-x-2 py-2 transition-all duration-200 hover:pl-4 hover:bg-blue-700 rounded-md"
               onClick={closeMobileMenu}
             >
-              <Home size={20} />
-              <span>Home</span>
+              <item.icon size={20} className="hover:animate-spin" />
+              <span>{item.text}</span>
             </Link>
+          ))}
+          {currentUser ? (
+            <button 
+              onClick={() => {
+                handleLogout();
+                closeMobileMenu();
+              }}
+              className="flex items-center space-x-2 py-2 transition-all duration-200 hover:pl-4 hover:bg-blue-700 rounded-md"
+            >
+              <LogOut size={20} className="hover:animate-spin" />
+              <span>Logout</span>
+            </button>
+          ) : (
             <Link 
-              to="/listings" 
-              className="flex items-center space-x-2 py-2"
+              to="/login"
+              className="flex items-center space-x-2 py-2 transition-all duration-200 hover:pl-4 hover:bg-blue-700 rounded-md"
               onClick={closeMobileMenu}
             >
-              <Search size={20} />
-              <span>Find Food</span>
+              <LogIn size={20} className="hover:animate-spin" />
+              <span>Login</span>
             </Link>
-            {currentUser?.role === 'donor' && (
-              <Link 
-                to="/donate" 
-                className="flex items-center space-x-2 py-2"
-                onClick={closeMobileMenu}
-              >
-                <PlusCircle size={20} />
-                <span>Donate Food</span>
-              </Link>
-            )}
-            <Link 
-              to="/schedule" 
-              className="flex items-center space-x-2 py-2"
-              onClick={closeMobileMenu}
-            >
-              <Calendar size={20} />
-              <span>Schedule</span>
-            </Link>
-            <Link 
-              to="/impact" 
-              className="flex items-center space-x-2 py-2"
-              onClick={closeMobileMenu}
-            >
-              <BarChart3 size={20} />
-              <span>Impact</span>
-            </Link>
-            {currentUser ? (
-              <button 
-                onClick={() => {
-                  handleLogout();
-                  closeMobileMenu();
-                }}
-                className="flex items-center space-x-2 py-2"
-              >
-                <LogOut size={20} />
-                <span>Logout</span>
-              </button>
-            ) : (
-              <Link 
-                to="/login" 
-                className="flex items-center space-x-2 py-2"
-                onClick={closeMobileMenu}
-              >
-                <LogIn size={20} />
-                <span>Login</span>
-              </Link>
-            )}
-          </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Main Content */}
       <div className="flex flex-1">
         {/* Sidebar (desktop only) */}
-        <aside className="hidden md:block w-64 bg-white shadow-md">
+        <aside className="hidden md:block w-64 bg-white shadow-md transform transition-all duration-300 hover:shadow-xl">
           <nav className="p-4 flex flex-col space-y-2">
-            <Link 
-              to="/" 
-              className={`flex items-center space-x-2 p-2 rounded-md ${
-                location.pathname === '/' 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'hover:bg-gray-100'
-              }`}
-            >
-              <Home size={20} />
-              <span>Home</span>
-            </Link>
-            <Link 
-              to="/listings" 
-              className={`flex items-center space-x-2 p-2 rounded-md ${
-                location.pathname === '/listings' 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'hover:bg-gray-100'
-              }`}
-            >
-              <Search size={20} />
-              <span>Find Food</span>
-            </Link>
-            {currentUser?.role === 'donor' && (
+            {[
+              { to: "/", icon: Home, text: "Home" },
+              { to: "/listings", icon: Search, text: "Find Food" },
+              ...(currentUser?.role === 'donor' ? [{ to: "/donate", icon: PlusCircle, text: "Donate Food" }] : []),
+              { to: "/schedule", icon: Calendar, text: "Schedule" },
+              { to: "/impact", icon: BarChart3, text: "Impact" },
+              { to: "/profile", icon: UserCircle, text: "Profile" },
+            ].map((item) => (
               <Link 
-                to="/donate" 
-                className={`flex items-center space-x-2 p-2 rounded-md ${
-                  location.pathname === '/donate' 
+                key={item.to}
+                to={item.to}
+                className={`flex items-center space-x-2 p-2 rounded-md transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-md ${
+                  location.pathname === item.to 
                     ? 'bg-blue-100 text-blue-700' 
                     : 'hover:bg-gray-100'
                 }`}
               >
-                <PlusCircle size={20} />
-                <span>Donate Food</span>
+                <item.icon size={20} className="hover:animate-pulse" />
+                <span>{item.text}</span>
               </Link>
-            )}
-            <Link 
-              to="/schedule" 
-              className={`flex items-center space-x-2 p-2 rounded-md ${
-                location.pathname === '/schedule' 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'hover:bg-gray-100'
-              }`}
-            >
-              <Calendar size={20} />
-              <span>Schedule</span>
-            </Link>
-            <Link 
-              to="/impact" 
-              className={`flex items-center space-x-2 p-2 rounded-md ${
-                location.pathname === '/impact' 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'hover:bg-gray-100'
-              }`}
-            >
-              <BarChart3 size={20} />
-              <span>Impact</span>
-            </Link>
-            <Link 
-              to="/profile" 
-              className={`flex items-center space-x-2 p-2 rounded-md ${
-                location.pathname === '/profile' 
-                  ? 'bg-blue-100 text-blue-700' 
-                  : 'hover:bg-gray-100'
-              }`}
-            >
-              <UserCircle size={20} />
-              <span>Profile</span>
-            </Link>
+            ))}
           </nav>
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-4 md:p-6 overflow-auto">
+        <main className="flex-1 p-4 md:p-6 overflow-auto transition-all duration-300">
           <Outlet />
         </main>
       </div>
@@ -233,7 +166,7 @@ const Layout: React.FC = () => {
       <footer className="bg-blue-800 text-white py-6">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+            <div className="transform transition-colors duration-300 hover:text-white">
               <h3 className="text-lg font-semibold mb-3">Good2Give</h3>
               <p className="text-gray-300 text-sm">
                 Connecting surplus food with those who need it most. Together we can reduce food waste and fight hunger.
@@ -242,23 +175,29 @@ const Layout: React.FC = () => {
             <div>
               <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li><Link to="/" className="hover:text-white">Home</Link></li>
-                <li><Link to="/listings" className="hover:text-white">Find Food</Link></li>
-                <li><Link to="/donate" className="hover:text-white">Donate Food</Link></li>
-                <li><Link to="/impact" className="hover:text-white">Our Impact</Link></li>
+                {['/', '/listings', '/donate', '/impact'].map((path, i) => (
+                  <li key={i}>
+                    <Link 
+                      to={path} 
+                      className="transition-all duration-200 hover:text-white hover:pl-2"
+                    >
+                      {['Home', 'Find Food', 'Donate Food', 'Our Impact'][i]}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div>
+            <div className="transform transition-colors duration-300 hover:text-white">
               <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
               <p className="text-gray-300 text-sm">
                 Email: info@Good2Give.org<br />
-                Phone: (123) 456-7890<br />
-                Address: 123 Green Street, San Francisco, CA 94110
+                Phone: 9666843549<br />
+                Address: Anurag University,Hyderabad.
               </p>
             </div>
           </div>
-          <div className="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} Good2Give. All rights reserved.
+          <div className="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-400 transition-colors duration-300 hover:text-white">
+            © {new Date().getFullYear()} Good2Give. All rights reserved.
           </div>
         </div>
       </footer>

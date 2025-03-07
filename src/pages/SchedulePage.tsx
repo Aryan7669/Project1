@@ -10,7 +10,7 @@ const SchedulePage: React.FC = () => {
   if (!currentUser) {
     return (
       <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md text-center">
-        <AlertCircle className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+        <AlertCircle className="h-12 w-12 text-yellow-500 mx-auto mb-4 transition-all duration-500 animate-bounce" />
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Login Required</h2>
         <p className="text-gray-600 mb-6">
           You need to be logged in to view your schedule.
